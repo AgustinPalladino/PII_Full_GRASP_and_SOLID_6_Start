@@ -13,6 +13,7 @@ namespace Full_GRASP_And_SOLID
     {
         // Cambiado por OCP
         private IList<BaseStep> steps = new List<BaseStep>();
+        public bool Cooked { get; private set; } = false;
 
         public Product FinalProduct { get; set; }
 
@@ -61,6 +62,27 @@ namespace Full_GRASP_And_SOLID
             }
 
             return result;
+        }
+        
+        public int GetCookTime()
+        {
+            int result = 0;
+            foreach (BaseStep item in this.steps)
+            {
+                result += item.Time;
+            }
+            return result;
+        }
+        
+        
+        public void SetCooked() 
+        {
+            this.Cooked = true;
+        }
+        
+        
+        public void Cook()
+        {
         }
     }
 }
