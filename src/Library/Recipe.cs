@@ -83,6 +83,8 @@ namespace Full_GRASP_And_SOLID
         
         public void Cook()
         {
+            Adapter A1 = new Adapter(this);
+            A1.SetTimer(this.GetCookTime());
         }
     }
 }
